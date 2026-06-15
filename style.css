@@ -75,7 +75,7 @@ body {
 
 /* Top Banner / Hero Section Styling (With Blurred Storefront Background) */
 .hero {
-    background: url('Image/Pasal.png') center/cover no-repeat;
+    background: url('Pasal.png') center/cover no-repeat;
     height: 100vh;
     display: flex;
     flex-direction: column;
