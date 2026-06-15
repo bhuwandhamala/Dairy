@@ -1,0 +1,479 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f5f5; /* Light gray background for the main page body */
+}
+
+/* Navigation */
+.navbar {
+    background: #0277bd;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo-img {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    padding: 2px;
+    object-fit: contain;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #ffeb3b;
+}
+
+/* Top Banner / Hero Section Styling (With Blurred Storefront Background) */
+.hero {
+    background: url('Image/Pasal.png') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-top: 65px;
+    position: relative; /* Houses the absolute blur pseudo layer */
+}
+
+/* Clever overlay layer to blur Pasal.png while leaving your text crisp */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65); /* Dark layout overlay tint */
+    backdrop-filter: blur(6px);       /* Blurs the background image layout */
+    -webkit-backdrop-filter: blur(6px); /* Safari support */
+    z-index: 1;
+}
+
+/* Pushes front elements safely forward over the blur layer */
+.hero-logo-wrapper, .hero h1, .hero p, .hero a, .hero .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-logo {
+    width: 130px;
+    height: 130px;
+    background: white;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    padding: 5px;
+    object-fit: contain;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.location-link {
+    color: #ffeb3b;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.2s;
+}
+
+.location-link:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.btn {
+    background: #4caf50;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    display: inline-block;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background: #388e3c;
+    transform: translateY(-2px);
+}
+
+/* Products Section */
+.products {
+    padding: 60px 0;
+    background: #f0f0f0;
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.products h2 {
+    color: #0277bd;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+/* Product Rows & Menu Layout Setup */
+.product-row {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.product-row:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Milk Section Dropdown Settings */
+.product-dropdown-container {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.dropdown-header {
+    margin-bottom: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.arrow-indicator {
+    font-size: 0.8rem;
+    color: #0277bd;
+    margin-left: 8px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none; 
+    padding-left: 40px;
+    margin-top: 10px;
+}
+
+/* Open configuration state */
+.product-dropdown-container.active .dropdown-content {
+    display: block;
+}
+
+.product-dropdown-container.active .arrow-indicator {
+    transform: rotate(180deg);
+}
+
+/* Smaller size styling for the sub-items */
+.product-row.sub-item {
+    background: #fafafa;
+    border-left: 4px solid #0277bd;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    padding: 12px 15px; 
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.product-row.sub-item .product-photo {
+    flex: 0 0 110px;
+    width: 110px;
+}
+
+.product-row.sub-item .product-photo img {
+    height: 85px; 
+}
+
+.product-row.sub-item .product-name h3 {
+    font-size: 1.25rem; 
+}
+
+.product-row.sub-item .product-name p {
+    font-size: 0.9rem;
+}
+
+.product-row.sub-item .product-price {
+    flex: 0 0 130px;
+}
+
+.product-row.sub-item .price {
+    font-size: 1.4rem; 
+}
+
+/* Regular Product Images & Text Adjustments */
+.product-photo {
+    flex: 0 0 150px;
+    width: 150px;
+}
+
+.product-photo img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.product-name {
+    flex: 1;
+    text-align: left;
+    padding: 0 30px;
+}
+
+.product-name h3 {
+    color: #0277bd;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.product-name p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.product-price {
+    flex: 0 0 160px;
+    text-align: right;
+    border-left: 2px solid #eee;
+    padding-left: 20px;
+}
+
+.price {
+    display: block;
+    color: #4caf50;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.unit {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Contact Section & Delivery Criteria Styling */
+.contact {
+    padding: 60px 0;
+    background: #333;
+    color: white;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #4caf50;
+    margin-bottom: 30px;
+}
+
+.contact-box {
+    max-width: 600px;
+    margin: auto;
+    background: #444;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.order-notice {
+    background: rgba(255, 235, 59, 0.12);
+    color: #ffeb3b;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 235, 59, 0.25);
+}
+
+.criteria-container {
+    background: #3a3a3a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    margin-bottom: 25px;
+    border-left: 4px solid #4caf50;
+}
+
+.criteria-container h3 {
+    font-size: 1.05rem;
+    color: #eee;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.criteria-list {
+    list-style: none;
+    padding: 0;
+}
+
+.criteria-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #484848;
+    font-size: 1rem;
+}
+
+.criteria-list li:last-child {
+    border-bottom: none;
+}
+
+.distance {
+    color: #ffeb3b;
+    font-weight: 600;
+}
+
+.requirement {
+    color: #fff;
+    font-weight: bold;
+}
+
+.map-link {
+    color: #ffeb3b;
+    text-decoration: none;
+}
+
+.map-link:hover {
+    text-decoration: underline;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebea5;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links li {
+        margin: 0 10px;
+    }
+
+    .dropdown-content {
+        padding-left: 10px;
+    }
+
+    .product-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .product-photo {
+        margin-bottom: 15px;
+        width: 100%;
+        max-width: 180px;
+    }
+    
+    .product-name {
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    .product-price {
+        border-left: none;
+        padding-left: 0;
+        border-top: 2px solid #eee;
+        padding-top: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .criteria-list li {
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px 0;
+    }
+}
