@@ -478,25 +478,34 @@ footer {
     }
 }
 
-
-
 @media (max-width: 768px) {
     
-
+    /* 1. Keeps your menu items stacked nicely on mobile */
     header, .navbar {
         flex-direction: column; 
         text-align: center;
         padding: 10px;
     }
 
-   
+    /* 2. NEW: Slightly trims your logo size so it's not bulky */
+    header img, .navbar img, .logo-img {
+        width: 50px;   
+        height: 50px;
+    }
+
+    /* 3. Keeps your main title heading sized perfectly */
     h1 {
         font-size: 1.8rem; 
         line-height: 1.3;  
         padding: 0 15px; 
     }
 
+    /* 4. NEW: Slightly reduces the navigation/brand text size */
+    .navbar-brand, .company-name {
+        font-size: 1.4rem; 
+    }
 
+    /* 5. Keeps your smaller paragraphs and subtitles looking clean */
     p, h2, h3 {
         font-size: 1.1rem; 
         text-align: center;
