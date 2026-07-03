@@ -511,3 +511,18 @@ footer {
         text-align: center;
     }
 }
+
+/* 1. By default, hide the dropdown menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 9999; /* Keeps the menu on top of your background images */
+}
+
+/* 2. When JavaScript adds the 'show' class, display the menu! */
+.dropdown-menu.show {
+    display: block;
+}
